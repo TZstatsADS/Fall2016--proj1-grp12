@@ -4,7 +4,7 @@
 Term: Fall 2016
 
 + Team: Marriage Predictor
-+ Projec title: Are Millennials Married?
++ Projec title: Millennials, Married or Not?
 + Team members
 	+ Ran Li
 	+ Zachary Chen
