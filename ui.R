@@ -18,7 +18,7 @@ shinyUI(
                               "CON","EXT","RPR","PRD","TRN","MIL","UNEMP")),
       selectInput("Length.of.Work", label = "Please Select Your Race",
                   choices = c("50-52 Weeks","48-49 Weeks", "40-47 Weeks", "27-39 Weeks", "14-26 Weeks", "13 and less")),
-      selectInput("SCHL_code", label = "Please Select Your Race",
+      selectInput("SCHL_code", label = "Please Select Your Education Level",
                   choices = c("1.Less than K12", "2.K12", "3.Bachelor's","4.Master's", "5.Doctor's")),
       
       submitButton("Submit")),
