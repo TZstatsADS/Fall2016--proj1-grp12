@@ -1,11 +1,6 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Millennials, Married or Not?"
 ---
-
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
 
 ```{r}
 library(ggplot2)
@@ -102,10 +97,10 @@ for (i in 1:9){
 
 ACS_pus_3 = subset(ACS_pus_2, ACS_pus_2$POWSP <= 56 & ACS_pus_2$POWSP != 2 & ACS_pus_2$POWSP != 15)
 
-State_ACS_name = read.csv("D:/ADS Project/ACS_Name.csv",header=TRUE)
+State_ACS_name = read.csv(file="ACS_Name.csv",header=TRUE)
 ACS_pus_4 = merge(ACS_pus_3, State_ACS_name, by="POWSP")
 
-ACS_pus_5 = read.csv("D:/ADS Project/ACS_pus_new_collapse.csv", header=T)
+ACS_pus_5 = read.csv(file="ACS_pus_new_collapse.csv", header=T)
 ACS_pus_6 = merge(ACS_pus_5, State_ACS_name, by="POWSP")
 all_states = map_data("state")
 
@@ -135,7 +130,8 @@ ACS_pus_2$Weight = ACS_pus_2$PWGTP/sum(ACS_pus_2$PWGTP)
 ggplot(ACS_pus_2, aes(Occupation, ..count..,weight=Weight)) + 
   geom_bar(aes(fill = ..count..))+
   xlab("Occupation")+
-  ylab("Percentage")
+  ylab("Percentage")+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
 # Length of work
 ggplot(ACS_pus_2, aes(Length.of.Work, ..count..,weight=Weight)) + 
   geom_bar(aes(fill = ..count..))+
@@ -172,7 +168,7 @@ ggplot(ACS_pus_2, aes(Occupation,fill = Marriage.Status,weight=Weight)) +
   geom_bar(position = "fill") +
   xlab("Occupation") +
   ylab("Percentage of Marriage Status") + 
-  scale_fill_manual("Marriage Status",values = alpha( c("firebrick", "dodgerblue4"), 1))  
+  scale_fill_manual("Marriage Status",values = alpha( c("firebrick", "dodgerblue4"), 1))  +theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplot(ACS_pus_2, aes(Length.of.Work,fill = Marriage.Status,weight=Weight)) + 
   geom_bar(position = "fill")+
@@ -190,7 +186,7 @@ ggplot(ACS_pus_2, aes(Race,fill = Marriage.Status,weight=Weight)) +
   geom_bar(position = "fill")+
   xlab("Race") +
   ylab("Percentage of Marriage Status") + 
-  scale_fill_manual("Marriage Status",values = alpha( c("firebrick", "dodgerblue4"), 1))  
+  scale_fill_manual("Marriage Status",values = alpha( c("firebrick", "dodgerblue4"), 1))+theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ggplot(ACS_pus_2, aes(AGEP,fill = Marriage.Status)) + 
   geom_bar(position = "fill")+
