@@ -2,7 +2,7 @@ library(shiny)
 
 shinyUI(
   pageWithSidebar(
-    headerPanel("Whether You Will Get Married Or Not"),
+    headerPanel("Whether You Will Be Married or Not"),
     sidebarPanel(
       sliderInput("PINCP", label = "Please Select Your Personal Income", 
                   value = 10000, min = min(ACS_pus_2$PINCP), 
@@ -24,7 +24,7 @@ shinyUI(
       submitButton("Submit")),
     mainPanel(
       h3("Results of Prediction"),
-      h4("The predicted probability that you may get married is"),
+      h4("The predicted probability that you are married is"),
       verbatimTextOutput("Prediction"))
   )
 )
