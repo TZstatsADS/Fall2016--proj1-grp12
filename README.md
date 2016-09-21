@@ -3,8 +3,8 @@
 
 Term: Fall 2016
 
-+ Team TBD
-+ Projec title: TBD
++ Team: Marriage Predictor
++ Projec title: Are Millennials Married?
 + Team members
 	+ Ran Li
 	+ Zachary Chen
