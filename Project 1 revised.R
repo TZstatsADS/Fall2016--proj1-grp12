@@ -103,13 +103,6 @@ ggplot(ACS_pus_2, aes(Race, ..count..,weight=Weight)) +
   geom_bar(aes(fill = ..count..))+
   xlab("Race")+
   ylab("Percentage")
-# Personal Income
-ggplot((ACS_pus_2), aes(PINCP, ..count..,weight=Weight))+
-  geom_histogram(aes(fill = ..count..),binwidth = 50000)+
-  xlab("Persobal Income")+
-  ylab("Percentage")
-
-#More clear visualization for income only: 
 
 # Personal Income
 ggplot((ACS_pus_2), aes(PINCP, ..count..,weight=Weight))+
