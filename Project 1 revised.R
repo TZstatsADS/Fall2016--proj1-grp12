@@ -163,7 +163,7 @@ ggplot(ACS_pus_2, aes(Race,fill = Marriage.Status,weight=Weight)) +
 
 ggplot(ACS_pus_2, aes(AGEP,fill = Marriage.Status,weight=Weight)) + 
   geom_bar(position = "fill")+
-  xlab("Race") +
+  xlab("Age") +
   ylab("Percentage of Marriage Status") + 
   scale_fill_manual("Marriage Status",values = alpha( c("firebrick", "dodgerblue4"), 1))  +
   # third dimension eg:education:
@@ -181,7 +181,7 @@ summary(class_model)
 # training error
 error = abs(round(fitted.values(class_model))-na.omit(ACS_pus_2)$MAR_New)
 sum(error)      
-
+summary(na.omit(ACS_pus_2))
 ## CV Logistic Regression 
 glmcv = cv.glm(na.omit(ACS_pus_2), class_model, K=5)
 glmcv$delta
