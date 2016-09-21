@@ -197,6 +197,7 @@ sum(error2)
 
 ######Run shiny API################
 setwd(dir = "C:/Users/liran/OneDrive/TC Courses/ADS")
+library(shiny)
 runApp()
 
 
