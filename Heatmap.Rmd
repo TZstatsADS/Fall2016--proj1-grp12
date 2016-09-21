@@ -1,0 +1,35 @@
+```{r}
+data13p=data.frame
+data13p=read.csv(file="ACS_pus_2.csv")
+data13p=data13p[which(data13p$AGEP>20),]
+data13p=data13p[which(data13p$AGEP<30),]
+
+
+
+
+```
+
+```{r}
+##### Basic Heatmap
+degreelist=c("1.Less than K12","2.K12", "3.Bachelor's","4.Master's","5.Doctor's")
+output=matrix(nrow=5,ncol=30)
+for(i in 1:5)
+  for(j in 21:30)
+{
+    index=which(ACS_pus_2$SCHL_code==degreelist[i])
+    index2=which(ACS_pus_2$AGEP[index]==j)
+    output[i,j]=weighted.mean(ACS_pus_2$MAR_New[index][index2],ACS_pus_2$PWGTP[index][index2])
+}  
+
+    
+
+rownames(output)=degreelist
+output=output[,21:30]
+colnames(output)=c(21:30)
+heatmap(output,Rowv=NA,Colv=NA,xlab="Age",col=rainbow(30, s = 0.9, v = 0.9, start = 0.55, end = 0.9, alpha = 0.8),margins=c(10,5))
+```
+```{r}
+##### ggplot
+p=ggplot(as.data.frame(output,aes(variable,1:5)))
+```
+
