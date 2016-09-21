@@ -196,6 +196,7 @@ error2 = abs(round(fitted.values(class_model2))-na.omit(ACS_pus_2)$MAR_New)
 sum(error2)
 
 ######Run shiny API################
+setwd(dir = "C:/Users/liran/OneDrive/TC Courses/ADS")
 runApp()
 
 
